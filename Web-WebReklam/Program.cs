@@ -3,6 +3,11 @@ using Infrastructure_WebReklam.Context.IdentityContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using ApplicationCore_WebReklam.Entities.UserEntities.Concrete;
+using Infrastructure_WebReklam.AutoMapper;
+using AutoMapper;
+using Infrastructure_WebReklam.Services.Interfaces;
+using Infrastructure_WebReklam.Services.Concrate;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Web_WebReklam
 {
@@ -14,13 +19,45 @@ namespace Web_WebReklam
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddMvc();
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new Mapping());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+
+            builder.Services.AddSingleton(mapper);
+
+            builder.Services.AddScoped<ICityRepository, CityRepository>();
+            builder.Services.AddScoped<IVillageRepository, VillageRepository>();
+
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<AppDbContext>(options => { options.UseNpgsql(connectionString); });
 
-            builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<AppIdentityDbContext>();
             var connectionStringIdentity = builder.Configuration.GetConnectionString("IdentityDbConnection");
             builder.Services.AddDbContext<AppIdentityDbContext>(options => { options.UseNpgsql(connectionStringIdentity); });
+
+            builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
+            {
+                x.SignIn.RequireConfirmedPhoneNumber = false;
+                x.SignIn.RequireConfirmedAccount = false;
+                x.SignIn.RequireConfirmedEmail = false;
+                x.User.RequireUniqueEmail = true;
+                x.Password.RequiredLength = 1;
+                x.Password.RequiredUniqueChars = 0;
+                x.Password.RequireUppercase = false;
+                x.Password.RequireNonAlphanumeric = false;
+                x.Password.RequireLowercase = false;
+            })
+              .AddEntityFrameworkStores<AppIdentityDbContext>()
+              .AddDefaultTokenProviders()
+               .AddDefaultUI(); ;
+
+
+         
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -38,7 +75,13 @@ namespace Web_WebReklam
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+
             app.MapRazorPages();
+            app.MapControllerRoute(
+                name: "areas",
+                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+            );
 
             app.MapControllerRoute(
                 name: "default",
