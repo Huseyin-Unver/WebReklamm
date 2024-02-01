@@ -64,7 +64,7 @@ namespace Web_WebReklam.Areas.Admin.Controllers
                     return View(model);
                 }
             }
-            return RedirectToAction("Index", "City");
+            return RedirectToAction("Index");
         }
         [HttpPost]
         public async Task<IActionResult> UpdateCity(UpdateCityDTO model)
@@ -73,9 +73,24 @@ namespace Web_WebReklam.Areas.Admin.Controllers
             {
                 var city = _mapper.Map<City>(model);
                 await _cityRepository.UpdateAsync(city);
+                return RedirectToAction("Index");
 
             }
             return View(model);
+        }
+        public async Task<IActionResult> DeleteCity(int id)
+        {
+            if (id >0)
+            {
+                var city = await _cityRepository.GetById(id);
+                if (city is not null)
+                {
+                    await _cityRepository.DeleteAsync(city);
+                    return RedirectToAction("Index");
+                }
+                
+            }
+            return RedirectToAction("Index");
         }
     }
 }
