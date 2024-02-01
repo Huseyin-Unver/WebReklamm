@@ -1,17 +1,17 @@
-﻿@using ApplicationCore_WebReklam.DTO_s.CityDTO
+﻿@using ApplicationCore_WebReklam.DTO_s.VillageDTO
 @{
-    ViewData["Title"] = "Update City";
+    ViewData["Title"] = "Update Village";
 }
-@model UpdateCityDTO
+@model UpdateVillageDTO
 
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Şehir Güncelle</h3>
+                <h3 class="card-title">İlçe Güncelle</h3>
             </div>
-            <form asp-action="UpdateCity">
+            <form asp-action="UpdateVillage">
                 <input type="hidden" asp-for="Id" />
                 <div class="card-body">
                     <div>
@@ -19,11 +19,11 @@
                         <input asp-for="Name" class="form-control" />
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
-                   
+
                 </div>
                 <div class="card-footer" style="height:50px;">
                     <button type="submit" class="btn btn-outline-primary float-end">Kaydet</button>
-                    <a asp-controller="Cities" asp-action="Index" class="btn btn-outline-secondary float-start">Geri Dön</a>
+                    <a asp-controller="Villages" asp-action="Index" class="btn btn-outline-secondary float-start">Geri Dön</a>
                 </div>
             </form>
         </div>
