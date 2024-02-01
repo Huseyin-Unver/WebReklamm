@@ -3,6 +3,7 @@ using System;
 using Infrastructure_WebReklam.Context.IdentityContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure_WebReklam.Identity.Migrations
 {
     [DbContext(typeof(AppIdentityDbContext))]
-    partial class AppIdentityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240201102244_İnitialCreate")]
+    partial class İnitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -110,18 +113,18 @@ namespace Infrastructure_WebReklam.Identity.Migrations
                         {
                             Id = "e3569982-6bcc-49ed-b599-6b67ae72d134",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "63eb465b-5cda-4157-b2bb-aca1bc304381",
-                            CreatedDate = new DateTime(2024, 2, 1, 13, 34, 24, 766, DateTimeKind.Local).AddTicks(1900),
+                            ConcurrencyStamp = "b66273cf-d712-4df6-8b88-cc2a0906faad",
+                            CreatedDate = new DateTime(2024, 2, 1, 13, 22, 44, 537, DateTimeKind.Local).AddTicks(5742),
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
                             LastName = "Admin",
                             LockoutEnabled = true,
                             NormalizedEmail = "ADMIN@ADMİN.COM",
-                            NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAhnpKdWG7rUSjq+t1chNrnj7fcGBP9mgz+akfxNV3B7cf4OFscsxHiMflEbPma2Zg==",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDNo4amxFM/o0G/vpwL7XMvpbGHlS376HZdWQGUL8h/HKV94O1+n4JDeC6Mggmx59Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cd2be481-ff66-41e7-8e85-a5ae6f971284",
+                            SecurityStamp = "3713bae5-012e-4176-88ec-e13178752ad1",
                             Status = 1,
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"

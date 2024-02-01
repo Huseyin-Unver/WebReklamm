@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure_WebReklam.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240131143804_İnitalCreate")]
-    partial class İnitalCreate
+    [Migration("20240201103304_İnitialCreate")]
+    partial class İnitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -14,6 +14,7 @@ namespace Infrastructure_WebReklam.AutoMapper
         public Mapping()
         {
             CreateMap<City, CreateCityDTO>().ReverseMap();
+            CreateMap<City, UpdateCityDTO>().ReverseMap();
 
         }
     }

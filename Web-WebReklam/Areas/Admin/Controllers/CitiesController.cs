@@ -53,5 +53,29 @@ namespace Web_WebReklam.Areas.Admin.Controllers
 
             return View(model);
         }
+        public async Task<IActionResult> UpdateCity(int id)
+        {
+            if (id > 0)
+            {
+                var city = await _cityRepository.GetById(id);
+                if (city != null)
+                {
+                    var model = _mapper.Map<UpdateCityDTO>(city);
+                    return View(model);
+                }
+            }
+            return RedirectToAction("Index", "City");
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateCity(UpdateCityDTO model)
+        {
+            if (ModelState.IsValid)
+            {
+                var city = _mapper.Map<City>(model);
+                await _cityRepository.UpdateAsync(city);
+
+            }
+            return View(model);
+        }
     }
 }
