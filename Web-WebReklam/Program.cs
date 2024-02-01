@@ -33,6 +33,7 @@ namespace Web_WebReklam
 
             builder.Services.AddScoped<ICityRepository, CityRepository>();
             builder.Services.AddScoped<IVillageRepository, VillageRepository>();
+            builder.Services.AddScoped<IDesignerRepository, DesignerRepository>();
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<AppDbContext>(options => { options.UseNpgsql(connectionString); });

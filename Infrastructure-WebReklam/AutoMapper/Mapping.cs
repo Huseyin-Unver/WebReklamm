@@ -1,4 +1,5 @@
 ﻿using ApplicationCore_WebReklam.DTO_s.CityDTO;
+using ApplicationCore_WebReklam.DTO_s.DesignerDTO;
 using ApplicationCore_WebReklam.DTO_s.VillageDTO;
 using ApplicationCore_WebReklam.Entities.Concrete;
 using AutoMapper;
@@ -18,6 +19,8 @@ namespace Infrastructure_WebReklam.AutoMapper
             CreateMap<City, UpdateCityDTO>().ReverseMap();
             CreateMap<Village, CreateVillageDTO>().ReverseMap();
             CreateMap<Village, UpdateVillageDTO>().ReverseMap();
+            CreateMap<Designer, CreateDesignerDTO>().ReverseMap();
+            CreateMap<Designer, UpdateDesignerDTO>().ReverseMap();
 
 
 

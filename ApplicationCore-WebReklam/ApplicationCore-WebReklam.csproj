@@ -8,8 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTO%27s\AccountDTO\" />
-    <Folder Include="DTO%27s\SektorDTO\" />
+    <Compile Remove="DTO%27s\AccountDTO\**" />
+    <Compile Remove="DTO%27s\SektorDTO\**" />
+    <EmbeddedResource Remove="DTO%27s\AccountDTO\**" />
+    <EmbeddedResource Remove="DTO%27s\SektorDTO\**" />
+    <None Remove="DTO%27s\AccountDTO\**" />
+    <None Remove="DTO%27s\SektorDTO\**" />
   </ItemGroup>
 
   <ItemGroup>
