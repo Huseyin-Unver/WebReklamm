@@ -9,5 +9,6 @@ namespace Infrastructure_WebReklam.Services.Interfaces
 {
     public interface IVillageRepository : IBaseRepository<Village>
     {
+        void deneme();
     }
 }

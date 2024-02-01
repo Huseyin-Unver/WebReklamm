@@ -1,4 +1,5 @@
 ﻿using ApplicationCore_WebReklam.DTO_s.CityDTO;
+using ApplicationCore_WebReklam.DTO_s.VillageDTO;
 using ApplicationCore_WebReklam.Entities.Concrete;
 using AutoMapper;
 using Infrastructure_WebReklam.Services.Interfaces;

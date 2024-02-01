@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore_WebReklam.DTO_s.VillageDTO
 {
-    public class CreateCityDTO
+    public class CreateVillageDTO
     {
-        [Required(ErrorMessage = "Şehir adı zorunludur..")]
+        [Required(ErrorMessage = "İlçe adı zorunludur..")]
         public string Name { get; set; }
-
     }
 }

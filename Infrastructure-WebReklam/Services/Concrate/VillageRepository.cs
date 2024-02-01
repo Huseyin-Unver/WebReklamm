@@ -14,5 +14,10 @@ namespace Infrastructure_WebReklam.Services.Concrate
         public VillageRepository(AppDbContext context) : base(context)
         {
         }
+
+        public void deneme()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
