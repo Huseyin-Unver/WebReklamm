@@ -94,5 +94,46 @@ namespace Web_WebReklam.Areas.Admin.Controllers
             }
             return RedirectToAction("Index");
         }
+        public IActionResult UploadImage()
+        {
+            string path = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot/images/");
+
+            var imageList = Directory.GetFiles(path);
+
+            List<GetDesignerVM> uploadedImages = new List<GetDesignerVM>();
+
+            foreach (var image in imageList)
+            {
+                FileInfo fileInfo = new FileInfo(image);
+
+                GetDesignerVM model = new GetDesignerVM();
+                model.ImageFullName = image.Substring(image.IndexOf("wwwroot")).Replace("wwwroot/", string.Empty);
+  
+
+                uploadedImages.Add(model);
+            }
+
+            return View(uploadedImages);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UploadImage(IFormFile file)
+        {
+            if (file != null)
+            {
+                string imageExtension = Path.GetExtension(file.FileName);
+
+                string imageName = Guid.NewGuid() + imageExtension;
+
+                string path = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot/images/{imageName}");
+
+                using var stream = new FileStream(path, FileMode.Create);
+
+                await file.CopyToAsync(stream);
+
+            }
+
+            return RedirectToAction("UploadImage");
+        }
     }
 }
