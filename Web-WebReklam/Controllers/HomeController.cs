@@ -33,5 +33,12 @@ namespace Web_WebReklam.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        
+        public IActionResult RequestForm()
+        {
+
+            return View(); 
+        }
+
     }
 }
