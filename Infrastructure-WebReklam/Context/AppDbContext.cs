@@ -23,5 +23,8 @@ namespace Infrastructure_WebReklam.Context
         public DbSet<Designer> Designers { get; set; }
         public DbSet<Village> Villages { get; set; }
         public DbSet<Sektor> Sectors { get; set; }
+        public DbSet<RequestForm> RequestForms { get; set; }
+
+
     }
 }
