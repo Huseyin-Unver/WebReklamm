@@ -46,18 +46,12 @@
                         <span asp-validation-for="CompanyAddress" class="text-danger"></span>
                     </div>
                     <div>
-                    
+                        <label asp-for="Image" class="form-label"></label>
+                        <input asp-for="Image" class="form-control" />
                         <span asp-validation-for="Image" class="text-danger"></span>
                     </div>
-                    <form asp-action="UploadImage" enctype="multipart/form-data" method="POST">
-                        <label asp-for="Image" class="form-label">Resim Yükle</label>
-                       
-                        <div class="form-group">
-                           
-                            <input type="file" name="file" class="form-control" />
-                        </div>
-                       
-                    </form>
+                   
+                  
 
                 </div>
                 <div class="card-footer" style="height:50px;">

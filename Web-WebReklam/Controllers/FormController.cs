@@ -35,10 +35,11 @@ namespace Web_WebReklam.Controllers
             return View(model);
             
         }
-
-             public IActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }
+
+
     }
 }
