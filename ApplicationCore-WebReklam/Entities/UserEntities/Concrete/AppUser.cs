@@ -21,5 +21,6 @@ namespace ApplicationCore_WebReklam.Entities.UserEntities.Concrete
         public DateTime? UpdatedDate { get; set; }
         public DateTime? DeletedDate { get; set; }
         public Status Status { get => _status; set => _status = value; }
+
     }
 }
