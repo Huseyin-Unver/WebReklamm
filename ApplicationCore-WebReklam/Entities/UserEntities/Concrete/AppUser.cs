@@ -11,6 +11,7 @@ namespace ApplicationCore_WebReklam.Entities.UserEntities.Concrete
 {
     public class AppUser : IdentityUser, IBaseUser
     {
+        public string PhoneNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 

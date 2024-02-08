@@ -59,12 +59,26 @@ namespace Web_WebReklam.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+
+
+            [Required]
+            [Display(Name = "FirstName")]
+            public string FirstName { get; set; }
+
+
+            [Required]
+            [Display(Name = "LastName")]
+            public string LastName { get; set; }
+
+            
         }
 
         private async Task LoadAsync(AppUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+           
 
             Username = userName;
 
@@ -84,6 +98,7 @@ namespace Web_WebReklam.Areas.Identity.Pages.Account.Manage
 
             await LoadAsync(user);
             return Page();
+           
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -99,6 +114,8 @@ namespace Web_WebReklam.Areas.Identity.Pages.Account.Manage
                 await LoadAsync(user);
                 return Page();
             }
+
+            
 
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             if (Input.PhoneNumber != phoneNumber)

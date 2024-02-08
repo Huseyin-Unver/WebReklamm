@@ -76,6 +76,11 @@ namespace Web_WebReklam.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             /// 
+            [Phone]
+            [Display(Name = "Phone number")]
+            public string PhoneNumber { get; set; }
+
+
             [Required]
             [Display(Name = "FirstName")]
             public string FirstName { get; set; }
@@ -174,7 +179,8 @@ namespace Web_WebReklam.Areas.Identity.Pages.Account
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
                     PasswordHash = Input.Password,
-                    Email = Input.Email
+                    Email = Input.Email,
+                     PhoneNumber = Input.PhoneNumber
 
                 };
 

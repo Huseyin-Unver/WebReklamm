@@ -16,7 +16,7 @@ namespace Infrastructure_WebReklam.SeedData
     {
         public void Configure(EntityTypeBuilder<AppUser> builder)
         {
-           
+
             var hasher = new PasswordHasher<AppUser>();
 
             var admin = new AppUser
@@ -28,6 +28,7 @@ namespace Infrastructure_WebReklam.SeedData
                 NormalizedUserName = "ADMIN@ADMIN.COM",
                 Email = "admin@admin.com",
                 NormalizedEmail = "ADMIN@ADMİN.COM",
+                PhoneNumber = "1234567890",
                 PasswordHash = hasher.HashPassword(null, "Abcd!1234"),
                 LockoutEnabled = true
             };

@@ -41,6 +41,7 @@ namespace Web_WebReklam
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<AppDbContext>(options => { options.UseNpgsql(connectionString); });
 
+
             var connectionStringIdentity = builder.Configuration.GetConnectionString("IdentityDbConnection");
             builder.Services.AddDbContext<AppIdentityDbContext>(options => { options.UseNpgsql(connectionStringIdentity); });
 
