@@ -105,6 +105,10 @@ namespace Web_WebReklam.Areas.Identity.Pages.Account
             var result = await _userManager.ResetPasswordAsync(user, Input.Code, Input.Password);
             if (result.Succeeded)
             {
+
+
+
+
                 return RedirectToPage("./ResetPasswordConfirmation");
             }
 
